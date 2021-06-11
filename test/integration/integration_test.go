@@ -30,6 +30,10 @@ var _ = Describe("Integration", func() {
 		userTokenUnknownIDP      = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMiwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMDIiLCJhdWQiOiIxMjM0NTY3ODkwIiwiZXhwIjoxNzcyMjg3NjE5fQ.aP6PIrsPmWfxtEH_HOX9M81sUsLSdhi78pIiezDBY_-pHi1pmMeD9EbdFKZadLzoFFtf6avSmm2oUCWv5rDFHa0vashVFj1tut4F9mXrQdgl6u6Iu0F93tz-f4TvoKlCtvMrdefdCA3E_HuJxfbd2bpp4ICD0Pq0xEIY5dlLDsENlY9SffHQ8H_VJxNk91qNNLPjNSGg0wYrAvhc62tsE8081OWly9rv5YLN6uE-iknFGJBSWzQUMtdTNFEH1Ewmsz2BVMgufHYu5ZhbPlVnK8nfUztWySed5tJwfqabZS_oypir8hwu6Y34XUivx0hKCRpumEygYx-d8UX6ag6kVg"
 	)
 
+	It("Dummy failing test", func() {
+		Fail("Fail now!")
+	})
+
 	Context("Authenticating user to the kube api-server via trusted identity provider", func() {
 		DescribeTable("user authentication",
 			func(userToken string, expectedStatusCode int) {
