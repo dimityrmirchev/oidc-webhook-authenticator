@@ -23,7 +23,8 @@ jobs:
         go-version: 1.16
     
     - run: sudo apt-get -q update
-
+    - run: go install sigs.k8s.io/controller-runtime/tools/setup-envtest@latest
+    
     - name: build
       run: go build -v ./...
 

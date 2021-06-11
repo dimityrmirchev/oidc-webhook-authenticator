@@ -7,18 +7,13 @@
 if ! command -v go &> /dev/null
 then
     echo "Go is not installed."
-    exit
+    exit 1
 fi
-
-# if ! command -v kubebuilder &> /dev/null
-# then
-#     curl -L -o kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)
-#     chmod +x kubebuilder && sudo mv kubebuilder /usr/local/bin/
-# fi
 
 if ! command -v setup-envtest &> /dev/null
 then
-    go install sigs.k8s.io/controller-runtime/tools/setup-envtest@latest
+    echo "setup-envtest is not installed. Please install it by running 'go install sigs.k8s.io/controller-runtime/tools/setup-envtest@latest'"
+    exit 1
 fi
 
 test_env_dir=$(setup-envtest use -p path)

@@ -4,7 +4,10 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-if command -v setup-envtest &> /dev/null
+if ! command -v setup-envtest &> /dev/null
 then
-    setup-envtest cleanup
+    echo "setup-envtest tool is not installed. Nothing to clean."
+    exit
 fi
+
+setup-envtest cleanup
