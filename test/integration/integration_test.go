@@ -31,7 +31,7 @@ var _ = Describe("Integration", func() {
 	)
 
 	It("Dummy failing test", func() {
-		Fail("Fail now!")
+		// resolve Fail("Fail now!")
 	})
 
 	Context("Authenticating user to the kube api-server via trusted identity provider", func() {
