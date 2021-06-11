@@ -110,7 +110,7 @@ var _ = BeforeSuite(func() {
 	cfg, err := testEnv.Start()
 	Expect(err).NotTo(HaveOccurred())
 	Expect(cfg).NotTo(BeNil())
-	apiServerSecurePort, err = strconv.Atoi(testEnv.ControlPlane.GetAPIServer().SecureServing.Port)
+	apiServerSecurePort, err = strconv.Atoi(apiServer.SecureServing.Port)
 	Expect(err).NotTo(HaveOccurred())
 	err = authenticationv1alpha1.AddToScheme(scheme.Scheme)
 	Expect(err).NotTo(HaveOccurred())
@@ -142,7 +142,9 @@ var _ = BeforeSuite(func() {
 	wh := mgr.GetWebhookServer()
 	wh.Host = "127.0.0.1"
 	wh.Port = 50001
-	wh.CertDir = filepath.Join(wd, "api-server-certs")
+	wh.KeyName = "apiserver.key"
+	wh.CertName = "apiserver.crt"
+	wh.CertDir = apiServer.CertDir
 	wh.Register("/validate-token", authWH.Build())
 
 	go func() {
